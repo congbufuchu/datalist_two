@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+  <script>
+    // 1. 创建一个 ajax 对象
+    const xhr = new XMLHttpRequest()
+
+    // 2. 配置请求方式和请求地址
+    //   get 请求如果要携带参数
+    //   直接在地址栏后面进行拼接就行了
+    //   先在地址栏后面拼接一个 ?
+    //   然后开始拼接参数 key=value&key=value
+    xhr.open('GET', './login.php?name=Jack&age=18&gender=男')
+
+    // 3. 把请求发送出去
+    xhr.send()
+
+    // 4. 获取响应体
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && /2\d{2}/.test(xhr.status)) {
+        console.log(xhr.responseText)
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 我直接在这里获取响应体
+    //   肯定是先执行获取响应体的操作
+    //   然后响应体才能回到浏览器
+    // console.log(xhr.responseText)
+
+
+
+
+  </script>
+</body>
+</html>

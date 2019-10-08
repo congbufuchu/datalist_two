@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./js/utils.js"></script>
+    <script>
+        const p1 = new Promise(function(resolve,reject){
+            ajax({
+                url:'./data.php',
+                dataType:'json',
+                success(res){
+                    console.log(res)
+                    resolve(res)
+                }
+            })
+        })
+        p1.then(function(data){
+            const p2 = new Promise(function(resolve,reject){
+                ajax({
+                    url:'./data2.php',
+                    dataType:'json',
+                    data:{
+                        a:data.a,
+                        b:data.b
+                    },
+                    success(res){
+                        resolve(res)
+                    }
+                })
+            })
+            p2.then(function(data){
+                const p3 = new Promise(function(resolve,reject){
+                    ajax({
+                        url:'./data3.php',
+                        dataType:'json',
+                        data:{
+                            res:data.res,
+                            type:data.type
+                        },
+                        success(res){
+                            resolve(res)
+                        }
+                    })
+                })
+
+                p3.then(function(data){
+                    console.log(data)
+                })
+            })
+        })
+    </script>
+</body>
+</html>

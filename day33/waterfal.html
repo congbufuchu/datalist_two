@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 无限瀑布流 Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        a,
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        
+        .box {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        
+        ul {
+            width: 260px;
+            float: left;
+            margin-right: 30px;
+        }
+        
+        ul>li {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #333;
+        }
+        
+        ul>li>.imgBox {
+            width: 100%;
+        }
+        
+        ul>li>.contentBox {
+            height: 160px;
+            box-sizing: border-box;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        ul>li>.contentBox>p {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        ul>li>.contentBox>p:nth-child(1) {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            word-break: break-all;
+            height: 40px;
+            overflow: hidden;
+        }
+        
+        ul>li>.contentBox>p:nth-child(2)>i {
+            width: 10px;
+            height: 10px;
+            background-color: #bbb;
+        }
+        
+        ul>li>.contentBox>p:nth-child(2)>span {
+            color: #bbb;
+            padding: 0 10px;
+        }
+        
+        ul>li>.contentBox>p:nth-child(3)>span:nth-child(1) {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        ul>li>.contentBox>p:nth-child(3)>span:nth-child(2) {
+            padding-left: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+    </div>
+
+
+    <script>
+        const ulArr = document.querySelectorAll('ul')
+        let count = 24
+        let flag = true
+        getData()
+
+        function getData() {
+            if (flag === false) {
+        return
+      }
+
+      flag = false
+            const xhr = new XMLHttpRequest()
+
+            xhr.open('GET', '/dt?include_fields=top_comments%2Cis_root%2Csource_link%2Citem%2Cbuyable%2Croot_id%2Cstatus%2Clike_count%2Csender%2Calbum%2Creply_count&filter_id=%E6%89%8B%E5%B7%A5DIY&start=' + count + '&_=1565257401149')
+
+            xhr.send()
+
+            xhr.onload = function() {
+
+                bind(JSON.parse(xhr.responseText))
+                    // console.log(JSON.parse(xhr.responseText))
+            }
+        }
+
+        function bind(res) {
+
+            count = res.data.next_start
+
+            const data = res.data.object_list
+
+            data.forEach(item => {
+                let str = ` 
+                <li>
+              <div class="imgBox">
+                <a href="javascript:;">
+                  <img src="${item.photo.path}" alt="">
+                </a>
+              </div>
+              <div class="contentBox">
+                <p>${item.album.name}</p>
+                <p>
+                  <i></i>
+                  <span>${item.album.like_count}</span>
+                  <i></i>
+                  <span>${item.album.favorite_count}</span>
+                </p>
+                <p>
+                  <span>
+                    <a href="javascript:;">
+                      <img src="${item.sender.avatar}" alt="">
+                    </a>
+                  </span>
+                  <span>
+                    <strong>${item.sender.username}</strong>
+                    <span>发布到 <strong>${item.msg}</strong></span>
+                  </span>
+                </p>
+              </div>
+            </li>
+            `
+                let ulMin = ulArr[0]
+                let heiMin = ulArr[0].clientHeight
+
+                ulArr.forEach(item1 => {
+                    if (item1.clientHeight <= heiMin) {
+                        ulMin = item1
+                        heiMin = item1.clientHeight
+                    }
+                    ulMin.innerHTML += str
+                })
+
+            })
+            flag = true
+        }
+
+        // 判断哪个 ul 最短
+        window.onscroll = function() {
+            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+            const hei = document.documentElement.clientHeight
+
+            let ulMin = ulArr[0]
+            let heiMin = ulArr[0].clientHeight
+
+            ulArr.forEach(item1 => {
+                if (item1.clientHeight <= heiMin) {
+                    ulMin = item1
+                    heiMin = item1.clientHeight
+                }
+            })
+
+            if (scrollTop + hei >= heiMin - 200) {
+                getData()
+            }
+        }
+    </script>
+</body>
+
+</html>

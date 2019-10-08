@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="./js/utils.js"></script>
+    <script>
+        // async await  then  resolve(成功) reject(失败)
+        const p1 = new Promise(function(resolve, reject) {
+            ajax({
+                url: './data.php',
+                dataType: 'json',
+                success(res) {
+                    // console.log(res)
+                    resolve(res)
+                }
+            })
+        })
+
+        p1.then(function(data) {
+            // const p2 = new Promise(function(resolve, reject) {
+            const p2 = new Promise(function(resolve, reject) {
+                ajax({
+                    url: './data2.php',
+                    dataType: 'json',
+                    data: {
+                        a: data.a,
+                        b: data.b
+                    },
+                    success(res) {
+                        console.log(res)
+                        resolve(res)
+                    }
+                })
+            })
+            p2.then(function(data) {
+            const p3 = new Promise(function(resolve, reject) {
+                ajax({
+                    url: './data3.php',
+                    dataType: 'json',
+                    data: {
+                        res: data.res,
+                        type: data.type
+                    },
+                    success(res1) {
+                        resolve(res1)
+                        console.log(res1)
+                    }
+                })
+            })
+        })
+        })
+
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+  <script>
+    // 1. 创建一个 ajax 对象
+    const xhr = new XMLHttpRequest()
+
+    // 2. 配置请求方式和请求地址
+    //    不需要再地址栏拼接
+    xhr.open('POST', './login.php')
+
+    // 3. 把请求发送出去
+    //    post 请求的参数是写在请求体里面
+    //    send() 里面的位置就是写请求体的
+    //    name=Jack&age=18&gender=男 这个数据格式我们叫做表单数据格式
+    //    必须要配套一个请求头 content-type = 'application/x-www-form-urlencoded'
+
+    // 使用 ajax 发送 post 请求的时候，需要单独设置一个请求头
+    // 设置请求头使用 setRequestHeader
+    // 一定要在发送请求之前设置
+    // 参数1 请求头的 key
+    // 参数2 请求头的 value
+    xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
+
+    xhr.send('name=Jack&age=18&gender=男')
+
+    // 4. 获取响应体
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && /2\d{2}/.test(xhr.status)) {
+        console.log(xhr.responseText)
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 我直接在这里获取响应体
+    //   肯定是先执行获取响应体的操作
+    //   然后响应体才能回到浏览器
+    // console.log(xhr.responseText)
+
+
+
+
+  </script>
+</body>
+</html>

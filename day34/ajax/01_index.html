@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <script src="./js/utils.js"></script>
+  <script>
+    /*
+      封装一个 ajax
+
+      1. 考虑的内容参数（我想怎么调用）
+        + ajax(url, 请求方式, 请求参数, function () {}, 是否异步)
+        + 只有 url 是必填的参数
+        + 换一个方式传递参数
+        + ajax({
+          url: './ajax.php', // 请求地址
+          type: 'GET', // 请求方式
+          data: 'a=100&b=200', // 请求的参数
+          async: true, // 是否异步
+          success: function (res) { 使用 res 去渲染页面 }, // 成功的回调函数
+          dataType: 'json'
+        })
+
+        + dataType: 'json'
+          + 后台返回的数据如果是一个普通字符串
+          + 如果后台返回的是一个 json 格式的数据，应该执行一下 JSON.parse
+          + 表示期望后台返回的数据是 json，就要执行一下 JSON.parse
+    */
+
+
+    // try {
+    //   // 尝试一下这个代码
+    //   // 如果不报错就执行下去
+    //   // 如果报错了，那么就执行 catch
+    //   console.log(num)
+    // } catch (err) {
+    //   // err 是错误信息
+    //   console.log(err)
+    // }
+
+
+
+
+
+    ajax({
+      url: './list.php',
+      type: 'post',
+      data: { a: 100, b: 200 },
+      async: true,
+      dataType: 'json',
+      success (res) {
+        console.log(res)
+      }
+    })
+
+
+
+
+    // const xhr = new XMLHttpRequest()
+
+    // xhr.open('get', './list.php')
+
+    // xhr.send()
+
+    // xhr.onreadystatechange = function () {
+    //   if (xhr.readyState === 4 && /2\d{2}/.test(xhr.status)) {
+    //     bindHtml(JSON.parse(xhr.responseText))
+    //   }
+    // }
+
+    // function bindHtml(data) {
+    //   console.log(data)
+    // }
+
+
+  </script>
+</body>
+</html>

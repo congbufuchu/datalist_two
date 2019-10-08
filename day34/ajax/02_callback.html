@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script src="./js/utils.js"></script>
+  <script>
+    /*
+      callback 回调函数
+      把函数 a 当作参数传递到 函数 b
+      再函数 b 中以实参的形式进行调用函数 a
+    */
+
+    // function a() {
+    //   console.log('我是 a 函数')
+    // }
+
+    // function b(callback) {
+    //   console.log(callback)
+    //   callback()
+    // }
+
+    // b(a)
+
+    // 为什么要使用回调函数
+    // 当我想在一个异步的行为结束的时候执行某一段代码
+    // 我们的优质处理办法就是 callback
+
+    // function fn(cb) {
+    //   setTimeout(() => {
+    //     console.log('我再去买报纸')
+    //     cb()
+    //   }, 1000)
+    // }
+
+    // fn(function () {
+    //   console.log('买水')
+    // })
+
+
+    /*
+      回调地狱
+        - 需求发送三个 ajax 请求
+        - 第一个 ajax 请求正常发送，得到响应以后
+        - 第二个 ajax 请求需要携带参数，携带的是第一个 ajax 请求响应的结果
+        - 第三个 ajax 请求需要携带参数，携带的是第二个 ajax 请求响应的结果
+        - 打印第三个 ajax 请求的结果
+      致命的缺点
+        - 代码没有可维护性
+        - 嵌套关系混乱
+      解决方案
+        1. promise es6 的语法
+    */
+    ajax({
+      url: './data.php',
+      dataType: 'json',
+      success (res) {
+        ajax({
+          url: './data2.php',
+          data: {
+            a: res.a,
+            b: res.b
+          },
+          dataType: 'json',
+          success (res2) {
+            // res2 是第二次请求的结果
+            ajax({
+              url: './data3.php',
+              data: {
+                res: res2.res,
+                type: res2.type
+              },
+              dataType: 'json',
+              success (res3) {
+                // res3 就是第三次请求的结果
+                console.log(res3)
+              }
+            })
+          }
+        })
+      }
+    })
+
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+  <script>
+    /*
+      + js 有内置的构造函数来创建 ajax 对象
+        1. 创建一个 ajax 对象
+          + new XMLHttpRequest() 标准浏览器
+          + new ActiveXObject('Microsoft.XMLHTTP')  IE低版本使用
+        2. 告诉 ajax 你的请求方式，你的请求地址
+          + open('请求方式', '请求地址', 是否异步)
+          + 是否异步： 默认值是 true，表示 是异步
+          +           false， 表示 非异步，同步
+        3. 把这个请求发送出去
+          + send('请求体的参数')
+        4. 获取响应体
+          + readystatechange 事件
+    */
+    // 1. 创建一个 ajax 对象
+    const xhr = new XMLHttpRequest()
+
+    // 2. 配置请求方式和请求地址
+    xhr.open('GET', './login.php')
+
+    // 3. 把请求发送出去
+    xhr.send()
+
+    // 4. 获取响应体
+    //   这个事件被注册上的时候已经是 readyState === 1
+    // xhr.onreadystatechange = function () {
+    //   // 判断 ajax 状态码 和 http 状态码
+    //   if (xhr.readyState === 4 && /2\d{2}/.test(xhr.status)) {
+    //     // 如果进入 if 条件
+    //     // 说明 ajax 状态吗是 4
+    //     // 说明 http 状态码是 2开头
+    //     console.log(xhr.responseText)
+    //   }
+    // }
+
+    // 4. 获取响应体
+    //   标准浏览器里面有一个新的方法 onload
+    //   onload 就表示 http 状态码为 2 开头并且 ajax 状态码为 4
+    //   和 window.onload 是两个事件
+    //   是 xhr 专用的事件
+    // xhr.onload = function () {
+    //   console.log(xhr.responseText)
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+    // 我直接在这里获取响应体
+    //   肯定是先执行获取响应体的操作
+    //   然后响应体才能回到浏览器
+    // console.log(xhr.responseText)
+
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <script src="../js/utils.js"></script>
+  <script>
+    // 高贵的写一下 promise
+    pAjax({
+      url: './data.php',
+      dataType: 'json'
+    })
+    .then(function (data) {
+      return pAjax({
+        url: './data2.php',
+        dataType: 'json',
+        data: {
+          a: data.a,
+          b: data.b
+        }
+      })
+    })
+    .then(function (data) {
+      return pAjax({
+        url: './data3.php',
+        dataType: 'json',
+        data: {
+          res: data.res,
+          type: data.type
+        }
+      })
+    })
+    .then(data => {
+      console.log(data)
+    })
+
+
+    /*
+      异步执行机制
+      如果我能把一个异步代码在不改变你本质的时候
+      写的看起来向一个同步代码
+        const res1 = 第一个 ajax 请求
+        // 当你第一个请求没有完成的时候不继续向下执行带代码
+        const res2 = 第二个 ajax 请求，携带 res 的数据
+
+      es7 的语法叫做 async/await 语法
+        + 回调地狱的终极解决方案
+    */
+  </script>
+</body>
+</html>
