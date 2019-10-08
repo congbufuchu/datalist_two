@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    ul {
+      width: 640px;
+      height: 280px;
+      border: 10px solid pink;
+      margin: 30px auto;
+    }
+
+    li {
+      width: 160px;
+      height: 100%;
+      float: left;
+      overflow: hidden;
+    }
+
+    img {
+      width: 520px;
+      height: 280px;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 520 280 -->
+  <ul>
+    <li><img src="01.jpg" alt=""></li>
+    <li><img src="02.jpg" alt=""></li>
+    <li><img src="03.jpg" alt=""></li>
+    <li><img src="04.jpg" alt=""></li>
+  </ul>
+
+  <button>按钮</button>
+
+
+  <script src="../jquery/jquery.min.js"></script>
+  <script>
+    $('ul > li').mouseover(function () {
+      $('ul > li').finish()
+      $(this)
+        .siblings()
+        .animate({ width: 40 })
+        .end()
+        .animate({ width: 520 })
+
+    })
+
+    $('ul').mouseleave(() => {
+
+      $('ul > li').finish().animate({ width: 160 })
+    })
+  </script>
+
+</body>
+
+</html>

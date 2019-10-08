@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 500px;
+      height: 150px;
+      border: 10px solid #333;
+
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      margin: 30px auto;
+
+      position: relative;
+    }
+
+    p {
+      width: 100px;
+      height: 100px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 288px;
+      height: 180px;
+
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <p><img src="1.png" alt=""></p>
+    <p><img src="2.png" alt=""></p>
+    <p><img src="3.png" alt=""></p>
+    <span>
+      <img src="1.png" alt="">
+    </span>
+  </div>
+
+
+  <script src="../jquery/jquery.min.js"></script>
+  <script>
+    $('p > img')
+      .hover(function () {
+        $('span').css('display', 'block')
+      }, function () {
+        $('span').css('display', 'none')
+      })
+      .mousemove(function (e) {
+        // 拿到我的坐标
+        // 把我的坐标设置给 span 标签就行了
+        // e.offsetX 是 光标到当前这个图片的左边的距离
+        // 当前图片到父元素的左边距离
+
+        // offset 是一个可读写的方法
+        //   写的时候是按照页面来写的尺寸
+        // pageX 是相对于页面光标的坐标点
+        //   offset 设置的也是根据页面来的定位关系
+        // console.log(e)
+        // $('span').offset({ left: e.pageX + 15, top: e.pageY + 15 })
+
+        // 拿到我的图片地址
+        // 把我的图片地址给到 span 下的 img 的 src 属性
+        // console.log($(this).attr('src'))
+        // $('span > img').attr('src', $(this).attr('src'))
+
+        $('span')
+          .offset({ left: e.pageX + 15, top: e.pageY + 15 })
+          .find('img')
+          .attr('src', $(this).attr('src'))
+      })
+
+  </script>
+</body>
+</html>

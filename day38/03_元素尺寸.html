@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      padding: 20px;
+      border: 10px solid #333;
+      margin: 30px;
+
+      /* box-sizing: border-box; */
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+
+  </div>
+
+
+  <script src="./jquery/jquery.min.js"></script>
+
+  <script>
+
+    // 元素尺寸
+
+    // 1. height() 元素内容区域的高
+    //   注意： 不管有没有 box-sizing 都是操作内容区域的高
+    //   不传递参数的时候是 获取 高，值是一个 number 数据类型
+    //   传递参数就是 设置 高
+    // console.log($('div').height())
+
+    // 2. width() 元素内容区域的宽
+    //   注意： 不管有没有 box-sizing 都是操作内容区域的宽
+    //   不传递参数的时候是 获取 宽，值是一个 number 数据类型
+    //   传递参数的时候是 设置 宽
+    // $('div').width(300)
+    // console.log($('div').width())
+
+    // 3. innerHeight() 元素内容区域 + padding 区域
+    //   不能设置只能获取
+    // console.log($('div').innerHeight())
+
+    // 4. innerWidth() 元素内容区域 + padding 区域
+    //   不能设置只能获取
+    // console.log($('div').innerWidth())
+
+    // 5. outerHeight() 元素内容区域 + padding 区域 + border 区域
+    // console.log($('div').outerHeight())
+
+    // 6. outerWidth() 元素内容区域 + padding 区域 + border 区域
+    // console.log($('div').outerWidth())
+
+    // outerHeight 和 outerWidth 是可以传递参数的
+    // 默认是  false，可以传递 true
+    // 表示要不要获取 margin
+    // console.log($('div').outerHeight(true))
+    // console.log($('div').outerWidth(true))
+
+    /*
+      height() 和 width()
+        + 传递参数是设置元素的宽和高
+        + 不传递参数是获取元素的宽和高
+        + **不管 box-sizing 是什么，都是指内容区域的宽和高**
+      innerHeight() 和 innerWidth()
+        + 获取元素内容区域 + padding 区域的宽和高
+      outerHeight() 和 outerWidth()
+        + 不传递参数或者传递 false 的时候
+          + 是获取元素 内容区域 + padding 区域 + border 区域 的宽和高
+        + 传递一个 true
+          + 是获取元素 内容 + padding + border + margin 的宽和高
+    */
+
+
+  </script>
+</body>
+</html>

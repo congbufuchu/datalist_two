@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+      margin: 30px auto;
+      background-color: pink;
+
+      /* display: none; */
+    }
+
+    button {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <button>按钮</button>
+  <div></div>
+  <script src="./jquery/jquery.min.js"></script>
+  <script>
+
+    // 动画
+
+    // 1. show()
+    //   让元素显示
+    //   支持一些参数
+    //   第一个参数： 时间 单位是 ms
+    //   第二个参数： 运动曲线 linear
+    //   第三个参数： 回调函数 在运动结束后触发
+
+    // $('button').click(() => {
+    //   $('div').show(5000, 'linear', function () {
+    //     console.log('显示结束了')
+    //   })
+    // })
+
+    // 2. hide()
+    //    让元素隐藏
+    //    支持一些参数
+    //    第一个参数是 时间
+    //    第二个参数 运动曲线
+    //    第三个参数 回调函数 在运动结束后触发
+    // $('button').click(() => {
+    //   $('div').hide(5000, 'linear', function () {
+    //     console.log('隐藏结束了')
+    //   })
+    // })
+
+    // 3. toggle()
+    //     切换动画
+    //     如果当前是显示，那么就隐藏，如果当前是隐藏，那么就显示
+    //     三个参数 time timing-function callback
+    // $('button').click(() => {
+    //   $('div').toggle(1000, 'linear', function () {
+    //     console.log('隐藏结束了')
+    //   })
+    // })
+
+
+    // 4. slideDown()
+    //     让元素下拉显示
+    // $('button').click(() => {
+    //   $('div').slideDown(1000, 'linear', function () {
+    //     console.log('隐藏结束了')
+    //   })
+    // })
+
+    // 5. slideUp()
+    //     让元素上拉隐藏
+    // $('button').click(() => {
+    //   $('div').slideUp(1000, 'linear', function () {
+    //     console.log('隐藏结束了')
+    //   })
+    // })
+
+    // 6. slideToggle()
+    //     切换显示和隐藏
+    // $('button').click(() => {
+    //   $('div').slideToggle(1000, 'linear', function () {
+    //     console.log('隐藏结束了')
+    //   })
+    // })
+
+    // 7. fadeIn()
+    //     渐渐的显示
+    // $('button').click(() => {
+    //   $('div').fadeIn(1000, 'linear', function () {
+    //     console.log('隐藏结束了')
+    //   })
+    // })
+
+    // 8. fadeOut()
+    //     渐渐的隐藏
+    // $('button').click(() => {
+    //   $('div').fadeOut(1000, 'linear', function () {
+    //     console.log('隐藏结束了')
+    //   })
+    // })
+
+    // 9. fadeToggle()
+    //     渐隐渐显
+    // $('button').click(() => {
+    //   $('div').fadeToggle(1000, 'linear', function () {
+    //     console.log('隐藏结束了')
+    //   })
+    // })
+
+    // 10. fadeTo()
+    //     渐渐的到一个你指定的透明度
+    $('button').click(() => {
+      $('div').fadeTo(1000, 0.5, 'linear', function () {
+        console.log('到达指定透明度')
+      })
+    })
+
+  </script>
+</body>
+
+</html>

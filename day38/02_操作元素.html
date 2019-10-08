@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <span>123</span>
+  </div>
+
+  <script src="./jquery/jquery.min.js"></script>
+  <script>
+    /*
+      操作元素
+        使用 jQuery 对元素进行增删改查（CRUD）
+    */
+
+    // 1. 创建一个元素
+    //  $()
+    const box = $('<div>我是生成的标签</div>') // 创建了一个 div 元素
+
+    // 2. 父元素.append(子元素)
+    //   在父元素中追加一个子元素 放在最后
+    // $('.box').append(box)
+
+    // 3. 子元素.appendTo(父元素)
+    //   把某一个子元素添加到某一个父元素里面 放在最后
+    // box.appendTo($('.box'))
+
+    // 4. 父元素.prepend(子元素)
+    //   在父元素中添加一个子元素，放在最前面
+    // $('.box').prepend(box)
+
+    // 5. 子元素.prepengTo(父元素)
+    //   把某一个子元素添加发哦某一个父元素里面，放在最前面
+    // box.prependTo($('.box'))
+
+    // 6. 页面元素.after(要添加的元素)
+    //    在页面元素的后面追加一个要添加的元素，两个元素是并列关系
+    // $('.box').after(box)
+
+    // 7. 要添加元素.insertAfter(页面元素)
+    //    把要添加元素添加在页面元素的后面，两个元素是并列关系
+    // box.insertAfter($('.box'))
+
+    // 8. 页面元素.before(要添加元素)
+    //    在页面元素的前面添加一个要添加元素，两个元素是并列关系
+    // $('.box').before(box)
+
+    // 9. 要添加元素.insertBefore(页面元素)
+    //    把要添加元素添加在页面元素的前面，两个元素是并列关系
+    // box.insertBefore($('.box'))
+
+
+  </script>
+</body>
+</html>

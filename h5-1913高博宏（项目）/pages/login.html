@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="tp_page" content="2.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=8" />
+	<meta name="renderer" content="webkit">
+	<title>1号店登录</title>
+	<link rel="stylesheet" type="text/css" href="../css/yhd.com.css" />
+	<link rel="stylesheet" href="../lib/fonticon/iconfont.css">
+	<script type="text/javascript" src="../js/pclogin.js"></script>
+	<link rel="shortcut icon" href="../static/images/yhd_favicon.ico" />
+</head>
+
+<body>
+	<div class="regist_header clearfix">
+		<div class="wrap">
+			<a href="./index.html" class="logo"><img src="../static/aim/loginlogo.jpg" height="55" alt="1号店" /></a>
+			<div class="regist_header_right clearfix">
+				<div class="help_wrap">
+					<a class="hd_menu" href="#"><s class="help_ico"></s>帮助中心</a>
+					<div class="hd_menu_list">
+						<ul>
+							<li><a href="#">包裹跟踪</a></li>
+							<li><a href="#">常见问题</a></li>
+							<li><a href="#">在线退换货</a></li>
+							<li><a href="#">在线投诉</a></li>
+						</ul>
+					</div>
+				</div>
+				<span class="fr">您好，欢迎光临1号店！ <a href="#" class="blue_link">请登录</a></span>
+			</div>
+		</div>
+	</div>
+	<div class="login_wrap">
+		<div class="wrap clearfix">
+			<div class="mod_login_wrap">
+				<div class="login_pc">
+					<p id="error_tips" class="error_tips" style="display:none">您填写的账户名不存在请核对后重新填写</p>
+					<div class="clearfix">
+						<h3>1号店用户登录</h3>
+						<a href='./newlogin.html' class="regist_new blue_link">注册新账号</a>
+					</div>
+
+					<div class="login_form">
+						<div class="form_item_wrap">
+							<form action="">
+								<div class="form_item">
+									<label class="user_ico">&nbsp;</label>
+									<input id="un" type="text" _input name="credentials.username" spellcheck="false" tabIndex="1"
+										class="ipt ipt_username" style="outline: none;" placeholder="账号" value="" />
+								</div>
+								<div class="form_item">
+									<label class="paswd_ico">&nbsp;</label>
+									<input id="pwd" type="password" name="credentials.password" tabIndex="2"
+										class="ipt ipt_password gay_text" placeholder="密码 " style="outline: none;" />
+
+								</div>
+
+								<div class="auto_login clearfix">
+									<p class="clearfix">
+										<a id="check_agreement" href="#" class="uncheck_agreement">自动登录</a>
+										<input id="autoLoginCheck" type="hidden" />
+										<span id="agreement_tips" class="auto_tips" style="display: none;">请勿在公用电脑上启用</span>
+									</p>
+									<p class="service_agreement">点击登录，表示您同意1号店<a href="#" class="blue_link"
+											target="_blank">《服务协议及隐私声明》</a>
+									</p>
+									<a href="#" target="_blank" class="forget_pswd" tabIndex="-1">忘记密码？</a>
+								</div>
+
+								<button id="login_button" type="submit" class="login_btn">登录</button>
+							</form>
+						</div>
+
+						<div class="joint_landing_wrap">
+							<p>更多合作网站账号登录</p>
+							<div class="clearfix">
+								<ul class="account_list clearfix">
+									<li><a href="#" target="_blank" class="iconfont qq" title="QQ">&#xe6b4;</a></li>
+									<li><a href="#" target="_blank" class="iconfont jingdong" title="京东">&#xe600;</a></li>
+									<li><a href="#" target="_blank" class="iconfont weixin" title="微信">&#xe6b3;</a></li>
+									<li><a href="#" target="_blank" class="iconfont sina" title="新浪微博">&#xe6b2;</a></li>
+								</ul>
+								<a href="javascript:void(0);" class="unfold" title="展开">更多合作网站<i></i></a>
+							</div>
+							<ul class="more_landing clearfix">
+								<!-- <li><a href="#" target="_blank"><i class="iconfont alipay">&#xe61a;</i>支付宝</a></li>
+								<li><a href="#" target="_blank"><i class="iconfont wangyi">&#xe67e;</i>网易</a></li>
+								<li><a href="#" target="_blank"><i class="iconfont baidu">&#xe601;</i>百度</a></li>
+								<li><a href="#" target="_blank"><i class="iconfont renren">&#xe701;</i>人人网</a></li>
+								<li><a href="#" target="_blank"><i class="iconfont pingan">&#xe73b;</i>平安万里通</a></li>
+								<li><a href="#" target="_blank"><i class="iconfont mogujie">&#xe610;</i>蘑菇街</a></li> -->
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="login_switch">
+					<em></em>
+					<a href="javascript:;" class="two_dimension_code"></a>
+					<a href="javascript:;" class="static_pc"></a>
+				</div>
+			</div>
+			<div class="mod_left_banner"><a id="imgLink" target="_blank"><img id="img"
+						src="../static/aim/login_pic.png" /></a></div>
+		</div>
+	</div>
+	<div id="simplefooter"><a href="http://www.miibeian.gov.cn/" target="_blank">沪ICP备16050468号</a>|<a>沪B2-20170039</a>|<a
+			href="http://d7.yihaodianimg.com/N09/M07/BD/7B/ChEi11kJnKaAJQMrAAK-LnhML4o60600.jpg" target="_blank">营业执照</a>
+		<p>Copyright © 1号店网上超市 2007-2018，All Rights Reserved</p>
+	</div>
+</body>
+<script src="../js/cookie.js"></script>
+<script src="../js/utils.js"></script>
+<script src="../js/pagination.js"></script>
+<script src="../js/login.js"></script>
+
+</html>

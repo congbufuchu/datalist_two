@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+      margin: 30px auto;
+      background-color: pink;
+
+      /* display: none; */
+    }
+
+    button {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+    <button>按钮</button>
+    <div></div>
+
+    <script src="./jquery/jquery.min.js"></script>
+    <script>
+
+      // jQuery 里面自定义动画
+      // animate()
+      //   第一个参数： 你要运动的属性，对象的形式传递参数，要给目标值
+
+      $('button').click(() => {
+        $('div')
+          .animate({
+            height: 300,
+            width: 500
+          }, 1000, 'linear', function () {
+            console.log('运动结束')
+          })
+      })
+
+    </script>
+</body>
+</html>

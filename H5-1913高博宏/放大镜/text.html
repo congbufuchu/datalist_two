@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        .box{
+            width: 400px;
+            margin: 50px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .box .show{
+            width: 400px;
+            height: 400px;
+
+            position: relative;
+        }
+        .zhe{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            opacity: .4;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            display: none;
+        }
+        .box >.enlarge{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 101%;
+            background: url('./images/1.big.jpg')no-repeat;
+            background-size: 800px 800px;
+            background-position:0 0; 
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="show">
+            <img src="./images/1.jpg" alt="">
+            <div class="zhe"></div>
+        </div>
+        <div class="enlarge"></div>
+    </div>
+    <script src="./js/large.js"></script>
+    <script>
+        const box = document.querySelector('.box')
+        const e = new Enlarge(box)
+    </script>
+</body>
+</html>

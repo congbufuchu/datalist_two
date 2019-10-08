@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>登录</title>
+</head>
+
+<body>
+  <form action="">
+    <input type="text" class="username">
+    <input type="text" class="password">
+    <input type="button" value="登录" class="btn">
+  </form>
+</body>
+<script>
+  let serverPath = 'http://localhost:300'
+  $('btn').click(() => {
+    const data = {}
+    let a = $('.username').val()
+    let b = $('.password').val()
+
+    data.us = a
+    data.ps = p
+
+    $.ajax({
+      method: 'get',
+      url: serverPaht + '/admin/login',
+      data: data,
+      success(data) {
+        if (data.err === 0) {
+          alert('登陆成功')
+        } else {
+          alert('登陆失败')
+        }
+      }
+    })
+  })
+</script>
+
+</html>

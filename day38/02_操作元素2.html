@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="box">
+    <button>我是一个按钮</button>
+  </div>
+
+  <script src="./jquery/jquery.min.js"></script>
+  <script>
+
+    // 修改元素
+
+    // 用什么元素替换神元素
+
+    // const box = $('<p>我是创建的一个 p 标签</p>')
+
+    // 1. 把什么元素.replaceWith(替换成什么元素)
+    // $('.box > span').replaceWith(box)
+
+    // 2. 用什么元素.replaceAll(把什么元素替换掉)
+    //    会把所有满足条件的都替换掉
+    // box.replaceAll($('.box > span'))
+
+    // 删除元素
+
+    // 1. empty()
+    // 把标签内的东西全部删除
+    // 让自己变成一个空标签
+    // $('.box').empty()
+
+    // 2. remove()
+    // 把自己干掉，直接把自己移出页面
+    // $('.box').remove()
+
+    // 移除子元素
+    // $('.box').find('p').remove()
+
+
+    // 克隆元素
+
+    // 1. clone() 默认会把所有子元素给克隆过来
+    //  接受两个参数
+    //  参数一： 是否把元素身上的事件克隆过来, 默认 false
+    //  参数二： 单独指子元素身上的事件, 默认跟随第一个参数
+
+    // $('.box').click(function () {
+    //   console.log('我被点击了')
+    // })
+
+    $('button').click(function () {
+      console.log('我是按钮，我被点击了')
+    })
+
+    const cDiv = $('.box').clone(true, false).appendTo('body')
+
+  </script>
+</body>
+</html>

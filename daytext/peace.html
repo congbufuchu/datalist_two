@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>平安保险</title>
+	<link rel="stylesheet" type="text/css" href="css/pea.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript">
+/*	$(document).ready(function(){
+  	$("#hov").mouseover(function(){
+    $("#sho").css("display","block");
+  });
+  $("#hov").mouseout(function(){
+    $("#sho").css("display","none");
+    animate({ backgroundPositionY: '+0px' }, 80);
+  });
+});*/
+        window.onload = function(){
+            var hov_1 = document.getElementById("hov_1");
+            var sho_1 = document.getElementById("sho_1");
+            var hov_2 = document.getElementById("hov_2");
+            var sho_2 = document.getElementById("sho_2");
+            var hov_3 = document.getElementById("hov_3");
+            var sho_3 = document.getElementById("sho_3");
+            var timer;
+            sho_1.onmouseover = hov_1.onmouseover = function(){
+                sho.style.display="block";
+                sho_1.style.display="block";
+                clearTimeout(timer);
+            };
+            sho_1.onmouseout = hov_1.onmouseout = function() {
+                timer = setTimeout(function () {
+                    sho_1.style.display = "none";
+                    sho.style.display="none";
+                }, 200);
+            };
+            sho_2.onmouseover = hov_2.onmouseover = function(){
+                sho_2.style.display="block";
+                sho.style.display="block";
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    sho_3.style.display = "none";
+                }, 200);
+            };
+            sho_2.onmouseout = hov_2.onmouseout = function() {
+                timer = setTimeout(function () {
+                    sho_2.style.display = "none";
+                    sho.style.display="none";
+                }, 200);
+            };
+            sho_3.onmouseover = hov_3.onmouseover = function(){
+                sho_3.style.display="block";
+                sho.style.display="block";
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    sho_2.style.display = "none";
+                }, 200);
+            };
+            sho_3.onmouseout = hov_3.onmouseout = function() {
+                timer = setTimeout(function () {
+                    sho_3.style.display = "none";
+                    sho.style.display="none";
+                }, 200);
+            }
+        };
+    </script>
+</head>
+<body>
+	<div class="top">
+		<div class="top_1">
+			<div class="top_2">
+			<ul>
+				<li><a href="#" class="topleft">欢迎访问平安官网</a></li>
+				<li><a href="#" class="topleft">一账通</a></li>
+				<li><input type="button" name="" value="登录" class="topbtn"></li>
+				<li><input type="button" name="" value="注册" class="topbtn"></li>
+			</ul>
+			</div>
+			<div class="top_3">
+				<ul>
+					<li><a class="topright"><i class="icon_phone"></i>App下载</a></li>
+					<li><a class="topright"><i class="icon_weixin"></i>关注微信</a></li>
+					<li><a class="topright"><i class="icon_kefu"></i>客服服务</a></li>
+					<li><a class="topright">网站地图<i class="icon_map"></i></a></li>
+					<li><a class="topright">集团APP大全</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="sectop">
+			<div class="sectop_1"><img src="images/biglogo.png" class="pic_1"></div>
+			<div class="sectop_2">
+				<span>
+					<a href="#" class="leadtip">首页</a>
+					<a href="#" class="leadtip">理财</a>
+					<a href="#" class="leadtip">贷款</a>
+					<a href="#" class="leadtip">保险</a>
+					<a href="#" class="leadtip">信用卡</a>
+					<a href="#" class="leadtip">优惠专区</a>
+				</span>
+			</div>
+			<div class="sectop_3">
+				<input type="text" name="" value="平安APP" class="pic_2">
+				<div class="sectop_3_once">
+				<a href="#">热搜词：</a><a href="#" class="red">百万医疗险&nbsp;&nbsp;</a><a href="#" class="red">少儿保险&nbsp;&nbsp;</a><a href="#" class="red">少儿教育全险</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="dao">
+		<div class="dao_0">
+		<div class="dao_1">
+			<div id="hov_1" class="dao_2">
+				<a href="#">&gt;</a>
+				<p><img src="images/tip_1.png" class="pic_3"><b>全部产品</b></p>
+				<ul>
+					<li class="dao_3">少儿教育金</li>
+					<li class="dao_3">意外险精选</li>
+					<li class="dao_3">暑期旅游险</li>
+					<li class="dao_3">平安e生保PLUS</li>
+				</ul>
+				
+			</div>
+			<div class="menuline"></div>
+			<div id="hov_2" class="dao_2">
+				<a href="#">&gt;</a>
+				<p><img src="images/tip_2.png" class="pic_3"><b>热销产品</b></p>
+				<ul>
+					<li class="dao_3">全球境外旅游</li>
+					<li class="dao_3">平安e家保</li>
+					<li class="dao_3">E生康重有无忧</li>
+					<li class="dao_3">全能英才教育金</li>
+				</ul>
+			</div>
+			<div class="menuline"></div>
+			<div id="hov_3" class="dao_2">
+				<a href="#">&gt;</a>
+				<p><img src="images/tip_2.png" class="pic_3"><b>热门品牌</b></p>
+				<ul>
+					<li class="dao_3">平安+APP</li>
+					<li class="dao_3">三村工程</li>
+					<li class="dao_3">平安寿险商城</li>
+					<li class="dao_3">平安健康</li>
+				</ul>
+			</div>
+		</div>
+		<div id="sho" class="hid_tip">
+			<div id="sho_1" class="hid">
+				<div class="hidtitle">保险分类</div>
+				<ul>
+					<li>全部保险</li>
+					<li>车险</li>
+					<li>旅游险</li>
+					<li>意外险</li>
+					<li>健康险</li>
+					<li>少儿险</li>
+					<li>寿险</li>
+					<li>重疾险</li>
+					<li>财产险</li>
+				</ul>
+			</div>
+			<div id="sho_2" class="hid">
+				<div class="hidtitle">保险分</div>
+				<ul>
+					<li>全部保险</li>
+					<li>车险</li>
+					<li>旅游险</li>
+					<li>意外险</li>
+					<li>健康险</li>
+					<li>少儿险</li>
+					<li>寿险</li>
+					<li>重疾险</li>
+					<li>财产险</li>
+				</ul>
+			</div>
+			<div id="sho_3" class="hid">
+				<div class="hidtitle">保险</div>
+				<ul>
+					<li>全部保险</li>
+					<li>车险</li>
+					<li>旅游险</li>
+					<li>意外险</li>
+					<li>健康险</li>
+					<li>少儿险</li>
+					<li>寿险</li>
+					<li>重疾险</li>
+					<li>财产险</li>
+				</ul>
+			</div>
+		</div>
+		<div class="dao_4">
+			<div ><img src="images/right_top1.png" class="pic_4"></div>
+			<div ><img src="images/right_top2.png" class="pic_5"></div>
+			<div class="biao_0"><h4>快至<span class="red">3分钟</span>的极速贷款</h4></div>
+			<div class="table_0">
+				<input type="text" name="" value="" placeholder="请输入姓名" class="table_1"><br/>
+				<input type="text" name="" value="" placeholder="请输入电话号码" class="table_2">
+				<input type="submit" name="" value="立即贷款" class="table_3"><br/>
+				<div class="table_0_font"><input type="checkbox" name="" value="" class="change">已阅读《安全条款》隐私将严格保密</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+</html>
