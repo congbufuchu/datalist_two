@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        span{
+            color: red;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var btn = document.querySelector('button')
+            var email = document.querySelector('.email')
+            var pwd = document.querySelector('.pwd')
+            var form = document.querySelector('form')
+            var span = document.querySelectorAll('span')
+            form.addEventListener('submit',function(e){
+                e = e || window.event
+                e.preventDefault()
+            })
+            btn.addEventListener('click',function(){
+                var emailText = email.value
+                var pwdText = pwd.value
+                var emailReg = /^\w+@(qq|163|126|162)\.(cn|com|net)$/
+                var pwdReg = /^\w{6,16}$/
+                if(emailReg.test(emailText)&&pwdReg.test(pwdText)){
+                    alert('登陆成功')
+                    span[0].style.display = 'none'
+                    span[1].style.display = 'none'
+                }else{
+                    if(emailReg.test(emailText) === false){
+                        span[0].style.display = 'inline'
+                    }else{
+                        span[0].style.display = 'none'
+                    }
+                    if(pwdReg.test(pwdText) === false){
+                        span[1].style.display = 'inline'
+                    }else{
+                        span[1].style.display = 'none'
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <form action="">
+    <input type="text" class="email" placeholder="邮箱地址"><span>请输出正确的邮箱</span><br>
+    <input type="password" class="pwd" placeholder="密码"><span>密码长度为6-16位字符</span><br>
+    <button>注册</button>
+</form>
+<script>
+    
+</script>
+</body>
+</html>

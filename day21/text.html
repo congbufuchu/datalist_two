@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function fun(){
+            var arr=[];
+            var arr1=[];
+            for(var a=1;a<=5;i++){
+                for(var i=2;i<=60;i=i+2){
+
+                }
+            }
+            
+        }
+    </script>
+    <script type="text/javascript">
+        //定义一个含有30个整型元素的数组，按顺序分别赋予从2开始的偶数；然后按顺序每五个数求出一个平均值，放在另一个数组中并输出。
+        var arr = [];
+        var NewArr = [];
+        var average = 0;
+        arr.length = 30;
+        for(var i = 1; i <= arr.length; i++)
+        {
+        arr[i - 1] = 2*i;
+        //将arr赋值 arr[i - 1] 是因为数组下标从0开始
+        
+        if(i % 5 !== 0){
+        //做判断使之五个数为一组然后将每组的平均值放入另一个数组中
+            average += arr[i - 1];
+        }else{
+            NewArr.push(average/5);
+            average = 0;
+            }
+        }
+        console.log(arr);
+        console.log(NewArr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

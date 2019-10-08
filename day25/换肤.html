@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/blue.css" id="link1"> 
+    <link rel="stylesheet" href="css/red.css" id="link2">
+    <style>
+        /* .tophead{
+             position: fixed; 
+             top: 0; 
+             width: 100%;
+            height: 100px;
+            background-color: red;
+        }  */
+    </style>
+    <script>
+        // window.onload=function(){
+        //     var btn1 = document.getElementById('btn1')
+        //     var btn2 = document.getElementById('btn2')
+        //     var btn3 = document.getElementById('btn3')
+        //     btn1.onclick = function(){
+        //         document.getElementById('a').style.background='blue'
+        //     }
+        //     btn2.onclick = function(){
+        //         document.getElementById('a').style.background='green'
+        //     }
+        //     btn3.onclick = function(){
+        //         document.getElementById('a').style.background='yellow'
+        //     }
+        // }
+        function blue(){
+            document.getElementById("link2").disabled=false;
+            document.getElementById("link1").disabled=true;
+        }
+        function red(){
+            document.getElementById("link2").disabled=true;
+            document.getElementById("link1").disabled=false;
+        }
+    </script>
+</head>
+<body>
+    <div id="a" class="tophead" >
+        <!-- <input type="button" id="btn1">
+        <input type="button" id="btn2">
+        <input type="button" id="btn3"> -->
+    </div>
+    <input type="button" onclick="red();" value="换肤(blue)"/>
+    <input type="button" onclick="blue();" value="换肤(red)"/>
+</body>
+</html>

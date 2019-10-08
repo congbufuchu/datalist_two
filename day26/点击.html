@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function aa() {
+            window.onload = function(){
+                var oPoint = document.getElementById('point');
+                document.onmousemove = function(ev) {
+                var ev = ev || window.event
+                var X = ev.clientX
+                var Y = ev.clientY
+
+                oPoint.innerText = X + ',' + Y;
+            }
+            }
+        }
+        aa();
+    </script>
+</head>
+<body>
+    <div id="point">这里</div>
+</body>
+</html>

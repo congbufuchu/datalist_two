@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+            window.onload=function(){
+                btn.onclick=function(){
+                var str = document.getElementById('ru').value
+                var a=str.split("").reverse().join("");
+            // document.write(str.split("").reverse().join(""));
+            if(str===a){
+                document.write('是回文')
+                }else{
+                document.write('不是回文')
+                }
+                }
+            }
+    </script>
+</head>
+<body>
+    <input type="text" id="ru">
+    <input type="button" id="btn">
+</body>
+</html>

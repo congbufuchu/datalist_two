@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .tophead{
+            width: 300px;
+            height: 300px;
+            background: url(images/1.jpg) no-repeat;
+        }
+    </style>
+    <script>
+        function fun(){
+            var num =[1,2,3,4]
+            var idx = Math.floor((Math.random() * num.length));
+            var n = num[idx];
+            var m = 'url(images/'+n+'.jpg)'
+            return m;
+        }
+        window.onload=function(){
+            var btn = document.getElementById('btn')
+            btn.onclick = function(){
+                document.getElementById('a').style.background=fun() + 'no-repeat'
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="a" class="tophead"></div>
+    <input type="button" id="btn">
+</body>
+</html>

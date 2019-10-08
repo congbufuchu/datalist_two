@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>是否删除</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var arr = [{
+            name : 'chen',
+            age : '22',
+            gender : '男'
+        },{
+            name : 'wang',
+            age : '23',
+            gender : '女'
+        },{
+            name : 'li',
+            age : '24',
+            gender : '男'
+        }]
+        var tbody = document.querySelector('tbody')
+        var str = ''
+        for(i = 0;i < arr.length;i++){
+            str += '<tr>'
+            str += '<td>'
+            str += (i + 1)
+            str += '</td>'
+            for(var key in arr[i]){
+                str += '<td>'
+                str += arr[i][key]
+                str += '</td>'
+            }
+            str += '<td>'
+            str += '删除'
+            str += '</td>'
+            str += '</tr>'
+        }
+        tbody.innerHTML = str
+        var td = document.getElementsByTagName('td')
+        var tr = document.getElementsByTagName('tr')
+        for(var j = 0;j < td.length;j++){
+            td[j].style.width = '70px'
+        }
+        var num1 = document.querySelector('tbody>tr:nth-child(1)>td:nth-child(5)')
+        var num1_1 = document.querySelector('tbody>tr:nth-child(1)')
+        var num2 = document.querySelector('tbody>tr:nth-child(2)>td:nth-child(5)')
+        var num2_2 = document.querySelector('tbody>tr:nth-child(2)')
+        var num3 = document.querySelector('tbody>tr:nth-child(3)>td:nth-child(5)')
+        var num3_3 = document.querySelector('tbody>tr:nth-child(3)')
+        num1.onclick = function(){
+            num1_1.innerHTML = ''
+        }
+        num2.onclick = function(){
+            num2_2.innerHTML = ''
+        }
+        num3.onclick = function(){
+            num3_3.innerHTML = ''
+        }
+        console.log(num1_1)
+        console.log(tbody)
+        console.log(td)
+        console.log(tr)
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            background-color: black;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var btn = document.getElementById('btn')
+            btn.onclick=function(){
+                document.getElementById('btn').style.display='none'
+            }
+            var div = document.getElementsByTagName('div')
+            btn.οnmοuseοut=function(){
+               timer=setTimeout(function(){
+                   btn.style.display='block';
+                   clearTimeout(timer);
+               },4500);
+           }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <img id="btn" src="images/1.jpg" alt="">
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=`, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var str = 'abcdacbabcbababcbabcabd'
+        var obj = {};
+	    var i = 0;
+        ary1 = str.toLocaleLowerCase();
+        for(i=0;i<ary1.length;i++){
+            key=ary1[i]
+            if(obj[key]){
+                obj[key]++
+            }else[
+                obj[key]=1
+            ]
+        }
+        for(var key in obj){
+            console.log(key+'输出了'+obj[key]+'次')
+            document.write(key)
+        }  
+        // var arr2=[]
+        // for(var i = 0; i < ary1.length; i++){  
+
+        //             arr2.push(ary1[i]);  
+           
+        //     }  
+        // for( var i=0;i<arr2.length-1;i++){
+        //     for(var j=i+1;j<arr2.length;){
+        //         if(arr2[i]==arr2[j]){
+        //             arr2.splice(j,1)
+        //         }else{
+        //             j++
+        //         }
+        //     }
+        // }arr2 = arr2.join('')
+        // console.log(arr2)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

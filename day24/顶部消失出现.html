@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            height: 800px;
+        }
+        #op{
+            width: 100%;
+            height: 50px;
+            opacity: 0;
+            background: blue;
+            position: fixed;
+            top: 0;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            window.onscroll = function () {
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                if(document.documentElement.scrollTop !=0){
+                    var setop =parseInt(document.documentElement.scrollTop/20)
+                    setop=setop/10
+                    console.log(setop)
+                    // op.setAttribute('opacity','setop')
+                    document.getElementById("op").style.opacity=setop
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="op"></div>
+</body>
+</html>

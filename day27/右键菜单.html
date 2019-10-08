@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>/*跟运动相关的模块都需要绝对定位*/
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #idv1{
+                background: #999;
+                display: none;
+                /* width: 50px; */
+                position: absolute;
+            }
+            li{
+                list-style: none;
+                /* border-l:  */
+            }
+        </style>
+        <script>
+            //鼠标右键默认菜单事件
+            document.oncontextmenu = function(ev) {
+                var oevent = ev || event;
+                var div1 = document.getElementById('idv1');
+                //弹出自定义菜单
+                div1.style.display = 'block';
+                //设置自定义菜单的坐标，达到鼠标右键的地方弹出自定义菜单
+                div1.style.left = oevent.clientX + 'px';
+                div1.style.top = oevent.clientY + 'px';
+                //屏蔽右键默认菜单
+                return false;
+            }	
+            //点击页面任一地方，收起自定义菜单
+            document.onclick = function() {
+                var div1 = document.getElementById('idv1');
+                div1.style.display = 'none';
+            }
+        </script>
+    </head>
+    <body>
+        <div id="idv1">
+        <ul>
+            <li>1.english</li>
+            <hr>
+            <li>2.chinese</li>
+            <hr>
+            <li>3.french</li>
+            <hr>
+            <li>4.janpanese</li>
+        </ul>
+        </div>
+    </body>
+</html>

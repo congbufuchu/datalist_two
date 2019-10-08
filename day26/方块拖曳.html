@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #top{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background: #2A6496;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var top = document.getElementById('top');
+            var x = 0;
+            var y = 0;
+
+            document.onmousedown = function(ev){
+                var oEvent = ev || event;
+                x = oEvent.clientX - top.offsetLeft;
+                y = oEvent.clientY - top.offsetTop;
+
+                document.onmousemove = function(ev){
+                    var oEvent = ev || event;
+                    var m = oEvent.clientX - x;
+                    var n = oEvent.clientY - y;
+                    if(n < 50){
+                        n = 0;
+                    }else if(n>(document.documentElement.clientHeight-top.offsetHeight-50)){
+                        n = document.documentElement.clientHeight-top.offsetHeight
+                    }
+                    if(m < 50){
+                        m = 0;
+                    }else if(m>(document.documentElement.clientWidth-top.offsetWidth-50)){
+                        m = document.documentElement.clientWidth-top.offsetWidth
+                    }
+                    top.style.left= m +'px';
+                    top.style.top= n +'px';
+                }
+                document.onmouseup = function(ev){
+                    var oEvent = ev || event;
+
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="top"></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+//     function filtion(){
+//     // var inputContent = input.value;
+//     var str = 'asdasdSMasdasdasdSMsdasdasdSMsadasd'
+//     // 多个敏感词
+//     var arrMg = ['SM'];
+      
+//     var showContent = str;
+      
+//     for (var i = 0; i < arrMg.length; i++) {
+//         var r = new RegExp(arrMg[i], "ig");
+//         showContent = showContent.replace(r, "**");
+//     }
+//     document.write(showContent)
+//     // showInput.value = showContent;
+// }
+// filtion()
+//方案一
+    var str = 'asdasdSMasdasdasdSMsdasdasdSMsadasd'
+    for(var i = 0; i < str.length; i++){
+        if(str[i]==='S' && str[i+1]==='M'){
+            str=str.replace('SM','***')
+        }
+    }
+    document.write(str)
+//方案二
+</script>
+</head>
+<body>
+    
+</body>
+</html>

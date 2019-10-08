@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var arr = [1, 2, 3, 60]
+        var arr2 = [1, 2, 3]
+
+        function has(arr3,a) {
+            var b = arr3.indexOf(a)
+            if(b != -1){
+                return true
+            }else{
+                return false
+            }
+        }
+
+        console.log(has(arr, 60)) // true
+        console.log(has(arr2, 60)) // false
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

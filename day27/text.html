@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js"></script>
+<style type="text/css">
+    body{
+        font-size: 16px;
+    }
+    a{
+        text-decoration:none;
+    }
+    div.wrap{
+        width:40%;
+        margin: auto;
+    }
+    table.list{
+        background-color: black;
+        width:100%;
+    }
+    table.list td,table.list th{
+        background-color: white;
+        width:20%;
+        line-height: 2em;
+    }
+    .hidden{
+        display:none;
+    }
+    .center{
+        text-align: center;
+    }
+    .orange{
+        color:orange;
+    }
+    a:hover{
+        color:blue;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="list">
+            <h1 class="center">表格插件</h1>
+            <table class="list" >
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>成绩</th>
+                    <th><a href="#" class="add">增行</a></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="trmodle hidden">
+                    <td class="center">1</td>
+                    <td>
+                        <select name="" id="">
+                            <option value="1">张三</option>
+                            <option value="2">李四</option>
+                            <option value="3">王五</option>
+                            <option value="3">赵五</option>
+                        </select>
+                    </td>
+                    <td><input type="text" value="100" /></td>
+                    <td class="center"><a href="#" class="add">增行</a></td>
+                    <td class="center"><a href="#" class="del">删行</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(function(){
+        //使用事件委托：解决新增元素事件绑定问题
+        $("table.list").on("click",function(e){
+            //console.log(e);
+            var v = e.target||srcElement;
+            if(v.nodeName.toLowerCase()=="a"){
+                //增行
+                if(v.className=="add"){
+                    //复制模板行数据
+                    var n = "<tr>"+$(".trmodle").eq(0).clone().html()+"</tr>";
+                    //找到父级元素中的tr，然后在后面增加增行
+                    $(v).parent().parent().after(n);
+                    setIndex();
+                }
+                //删行
+                if(v.className=="del"){
+                    $(v).parent().parent().remove();
+                    setIndex();
+                }
+            }
+        });
+    });
+    //组织序号
+    function setIndex() {
+        var t = $("table.list tr");
+        t.each(function () {
+            $(this).children("td").eq(0).text($(this).index());
+        })
+    }
+</script>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.fa{
+				height: 300px;
+				width: 99%;;
+				border: 1px solid red;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			ul{
+				width: 100px;
+				height: 500px;
+			}
+			li{
+				border: 1px solid blue;
+				list-style: none;
+				width: 100px;
+				height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		
+		<div class="fa">
+			<ul>
+				<li>上</li>
+				<li>下</li>
+				<li>托</li>
+				<li>动</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+	
+			// 页面加载完毕事件
+			window.onload = function () {
+				// 左边的滑动效果
+				left_scroll();
+			}
+			
+			function left_scroll() {
+				// 1获取 必须知道的东西
+			
+				// 获取移动的ul
+				var moveNode = document.querySelector("ul");
+			
+				// ul父盒子的高度	
+				var moveNodeParentHeight = document.querySelector(".fa").offsetHeight;
+			
+				// ul的高度
+				var moveNodeHeight = moveNode.offsetHeight;
+			
+				// 计算移动的范围 因为 往上移动个是 y负方向 所有 这里 是减去 而不是加
+				var minDistance = moveNodeParentHeight - moveNodeHeight ;
+			
+				var maxDistance = 0;
+			
+			
+				// 定义变量 用来 标示 吸附的 距离
+				var delayDistance = 150;
+			
+				// console.log('最小值'+minDistance);
+				// console.log('最大值'+maxDistance);
+			
+				// 2.通过touch事件 修改 ul的移动
+				// 定义一些变量 记录 距离
+				//  起始值
+				var startY  = 0;
+				// 移动值
+				var moveY = 0;
+				// 总的移动距离
+				var distanceY = 0
+			
+				// 将 重复的代码 进行封装
+				var startTransition = function () {
+					moveNode.style.transition = 'all .5s';
+				}
+				var endTransition = function () {
+					moveNode.style.transition = '';
+				}
+				var setTransform = function (distance) {
+					moveNode.style.transform = 'translateY('+distance+'px)';
+				}
+			
+			
+				moveNode.addEventListener('touchstart',function(event){
+					startY = event.touches[0].clientY;
+				})
+				moveNode.addEventListener('touchmove',function(event){
+					moveY = event.touches[0].clientY - startY;
+			
+					// 判断 是否满足 移动的条件
+					if ((moveY+distanceY)>(maxDistance+delayDistance)) {
+						// 修正 moveY
+						moveY = 0;
+						distanceY = maxDistance+delayDistance;
+						// 为什么是减法 因为 往上移动 是负值 要比最小值 还要更小
+					}else if((moveY+distanceY)<(minDistance-delayDistance)){
+						// 修改 moveY
+						moveY = 0;
+						distanceY = minDistance-delayDistance;
+					}	
+					console.log(distanceY);
+					// 关闭 过渡效果
+					// moveNode.style.transition = '';
+					endTransition();
+					// 移动
+					// moveNode.style.transform = 'translateY('+(moveY+distanceY)+'px)';
+					setTransform(moveY+distanceY);
+				})
+				moveNode.addEventListener('touchend',function(event){
+					// 修改移动的总距离
+					distanceY+=moveY;
+			
+					// 吸附回去 判断 吸附的方位
+					if (distanceY>maxDistance) {
+						distanceY = maxDistance;
+					}else if(distanceY<minDistance){
+						distanceY = minDistance;
+					}
+			
+					// 吸附回去
+					// 移动
+					// moveNode.style.transition  ='all .5s';
+					startTransition();
+					// moveNode.style.transform = 'translateY('+(distanceY)+'px)';
+					setTransform(distanceY);
+				})
+				
+			}
+	</script>
+	
+</html>

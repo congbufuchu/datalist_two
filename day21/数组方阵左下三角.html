@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // var a1=[]
+        // var a2=[]
+        // var a3=[]
+        // var a4=[]
+        // var a5=[]
+        // var num=0
+        // for(var i = 1; i <= 25; i++){
+        //     // a[i - 1] = i;
+        //     if(i % 5 == 0 && i<=5){
+        //         a1[i - 1] = i;
+        //     }else if(i % 5 !== 0 && i<=10){
+        //         a2[i - 1] = i;
+        //     }else if(i % 5 !== 0 && i<=15){
+        //         a3[i - 1] = i;
+        //     }else if(i % 5 !== 0 && i<=20){
+        //         a4[i - 1] = i;
+        //     }else if(i % 5 !== 0 && i<=25){
+        //         a5[i - 1] = i;
+        //     }
+        // }
+        // console.log(a1)
+        // console.log(a2)
+        // console.log(a3)
+        // console.log(a4)
+        // console.log(a5)
+
+    var a = [[],[],[],[],[]];
+		for(var i=0; i<25; i++){
+			a[parseInt(i/5)].push(i+1);
+		}
+		console.log(a);
+		
+		for(var i=0; i<a.length; i++){
+			for(var j=0; j<i+1; j++){
+				document.write(a[i][j] + "\t");
+			}
+			document.write("<br>");
+        }
+    // var i, j, count=0;
+
+    // var x, y;
+
+    // var a[5][5];
+
+    // for (i=0; i<5; i++){
+
+    //     for(j=0; j<5; j++){
+    //         count++;
+    //         a[i][j] = count;
+    //     }
+    // }
+    // for (x=0; x<5; x++){
+    //     for (y=0; y<=x; y++){
+    //         console.log("%d ", a[x][y]);
+    //     }
+    //     console.log('\n')
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

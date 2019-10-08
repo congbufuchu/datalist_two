@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function getNum(a,b){
+            return Math.floor(Math.random() * (b - a + 1))+a
+            // if(obj[key]){
+            //     obj[key]++
+            // }else[
+            //     obj[key]=1
+            // ]
+        }
+        function getcolor(a,b){
+            var c='#'
+            for(var i=0;i<3;i++){
+                var col=Math.floor(Math.random() * (b - a + 1))+a
+                var col1=col.toString(16)
+                if(col < 16){
+				    col1 = "0"+col.toString(16);
+			    }else{
+				    col1 = col.toString(16);
+			    }
+                c += col1               
+            }
+            return c
+            console.log(c)
+        }
+        
+        var num=getNum(0,255)
+        var col2=getcolor(0,255)
+        console.log(num)
+        document.write(col2)
+        setInterval(function(){
+            var str =col2
+            // 'rgb('+getcolor(0,255) + ',' +getcolor(0,255) + ',' +getcolor(0,255)+')'
+            document.body.style.backgroundColor=str
+            location.reload()
+        },1000)
+    </script> 
+    <!-- <script>
+            // 编写一个函数，获得一个十六进制的随机颜色的字符串(例如：#20CD4F)
+            function fn(a) {
+                var sun = Math.floor(Math.random() * (a + 1))
+                console.log(sun)
+                return sun
+            }
+            fn(255)
+            // var rest = sun
+            console.log(sun)
+        </script> -->
+</head>
+<body>
+    
+</body>
+</html>

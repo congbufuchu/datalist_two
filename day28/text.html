@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none
+        }
+        ul{
+            width: 640px;
+            height: 640px;
+            border: 10px solid #999;
+            margin: 30px auto;
+            position: relative;
+        }
+        li{
+            width: 200px;
+            height: 200px;
+            background-color:pink;
+            border-radius:20px;
+            display: flex;
+            color: #fff;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+            position: absolute;
+        }
+    </style>
+    <!-- <script>
+        window.onload = function(){
+            var ul = document.querySelector('ul')
+            var lis = document.querySelectorAll('li')
+            var ulWidth = ul.clientWidth
+            var ulHeight = ul.clientHeight
+
+            addColor()
+            bindEvent()
+            var startX,startY
+            var moveX,moveY
+            var startLeft,startTop
+
+            function bindEvent(){
+                lis.forEach(function(item){
+                    item.addEventListerner('mousedown',function(e){
+                        e = e || window.event
+                        start = e.clientX - this.offsetLeft
+                        start = e.clientY - this.offsetTop
+                        this.style.transition = 'none'
+                        this.addEventListerner('mousemove',move)
+                        this.addEventListerner('mouseout',out)
+                        this.addEventListerner('mouseup',up)
+                    })
+                    item.addEventListerner('selectstart',function(e){
+                        e = e ||window.event
+                        e.preventDefault()
+                    })
+                })
+            }
+            function move(e){
+                e = e || window.event
+                moveX = e.clientX - startX
+                moveY = e.clientY - startY
+
+                if(moveX <= 0){
+                    moveX = 0
+                }
+                if(moveY <= 0){
+                    moveY = 0
+                }
+                if(moveX + this.clientWidth >= ulWidth){
+                    moveX = ulWidth - this.clientWidth
+                }
+                if(moveY + this.clientHeight >= ulHeight){
+                    moveY = ulHeight - this.clientHeight
+                }
+                this,style.left = moveX + 'px'
+                this.style.top = moveY + 'px'
+                this.style.zIndex = 10
+            }
+            function up(e){
+                e = e || window.event
+                var _this=this
+                var toucharr=[]
+                lis.forEach(function (item){
+                    if(item !== _this){
+                        if(Math.abs(_this.offsetLeft - item.offsetLeft)<= _this.clientWidth && Math.abs(_this.clientTop - item,offsetTop) <= _this.clientHeight){
+                            toucharr.push(item)
+                        }
+                    }
+                })
+                var maxArea = 0
+                var areaEla = null
+
+                toucharr.forEach(function(item){
+                    var x = _this.clientWidth - Math.abc(_this.offsetLeft - item.offsetLeft)
+                    var Y = _this.clientHeight - Math.abc(_this.offsettop - item.offsettop)
+                    if(x * y > maxArea){
+                        maxArea = x * y
+                        areaEla = item
+                    }
+                })
+                if(areaEla ===null){
+                    this.style.transition = 'all .5s liner'
+                    this.style.left = startLeft + 'px'
+                    this.style.top = startTop + 'px'
+                    this.style.zIndex = 1
+                }else{
+                    this.style.transition = 'all .5s linear'
+                    this.style.left = areaEla.offsetLeft + 'px'
+                    this.style.top = areaEle.offsetTop + 'px'
+                    areaEle.style.left = startLeft + 'px'
+                    areaEle.style.top = startTop + 'px'
+                    this.style.zIndex = 1
+                }
+                this.removeEventListener('mousemove', move)
+                this.removeEventListener('mouseout', out)
+            }
+            function out() {
+                console.log(this)
+                this.removeEventListener('mousemove', move)
+                this.removeEventListener('mouseout', out)
+                this.removeEventListener('mouseup', up)
+                this.style.transition = 'all .5s linear'
+                this.style.left = startLeft + 'px'
+                this.style.top = startTop + 'px'
+                this.style.zIndex = 1
+            }
+            function addColor() {
+                var arr = ['yellow', 'blue', 'red', 'pink', 'purple', 'orange', 'hotpink', 'green', 'skyblue']
+                lis.forEach(function (item, index) {
+                item.style.backgroundColor = arr[index]
+                })
+            }
+        }
+    </script> -->
+</head>
+<body>
+    <ul>
+        <li style="top:10px ;left: 10px">1</li>
+        <li style="top:10px ;left: 220px">2</li>
+        <li style="top:10px ;left: 430px">3</li>
+        <li style="top: 220px;left: 10px">4</li>
+        <li style="top: 220px;left: 220px">5</li>
+        <li style="top: 220px;left: 430px">6</li>
+        <li style="top: 430px;left: 10px">7</li>
+        <li style="top: 430px;left: 220px">8</li>
+        <li style="top: 430px;left: 430px">9</li>
+    </ul>
+
+    <script>
+        var ul = document.querySelector('ul')
+            var lis = document.querySelectorAll('li')
+            var ulWidth = ul.clientWidth
+            var ulHeight = ul.clientHeight
+
+            addColor()
+            bindEvent()
+            var startX,startY
+            var moveX,moveY
+            var startLeft,startTop
+
+            function bindEvent(){
+                lis.forEach(function(item){
+                    item.addEventListener('mousedown',function(e){
+                        e = e || window.event
+                        startX = e.clientX - this.offsetLeft
+                        startY = e.clientY - this.offsetTop
+                        startLeft = this.offsetLeft
+                        startTop = this.offsetTop
+                        this.style.transition = 'none'
+                        this.addEventListener('mousemove',move)
+                        this.addEventListener('mouseout',out)
+                        this.addEventListener('mouseup',up)
+                    })
+                    item.addEventListener('selectstart',function(e){
+                        e = e ||window.event
+                        e.preventDefault()
+                    })
+                })
+            }
+            function move(e){
+                e = e || window.event
+                moveX = e.clientX - startX
+                moveY = e.clientY - startY
+
+                if(moveX <= 0){
+                    moveX = 0
+                }
+                if(moveY <= 0){
+                    moveY = 0
+                }
+                if(moveX + this.clientWidth >= ulWidth){
+                    moveX = ulWidth - this.clientWidth
+                }
+                if(moveY + this.clientHeight >= ulHeight){
+                    moveY = ulHeight - this.clientHeight
+                }
+                this.style.left = moveX + 'px'
+                this.style.top = moveY + 'px'
+                this.style.zIndex = 10
+            }
+            function up(e){
+                e = e || window.event
+                var _this=this
+                var touchArr=[]
+                lis.forEach(function (item){
+                    if(item !== _this){
+                        if(Math.abs(_this.offsetLeft - item.offsetLeft)<= _this.clientWidth && Math.abs(_this.clientTop - item.offsetTop) <= _this.clientHeight){
+                            touchArr.push(item)
+                        }
+                    }
+                })
+                var maxArea = 0
+                var areaEle = null
+
+                touchArr.forEach(function(item){
+                    var x = _this.clientWidth - Math.abs(_this.offsetLeft - item.offsetLeft)
+                    var y = _this.clientHeight - Math.abs(_this.offsetTop - item.offsetTop)
+                    if(x * y > maxArea){
+                        maxArea = x * y
+                        areaEle = item
+                    }
+                })
+                if(areaEle ===null){
+                    this.style.transition = 'all .5s liner'
+                    this.style.left = startLeft + 'px'
+                    this.style.top = startTop + 'px'
+                    this.style.zIndex = 1
+                }else{
+                    this.style.transition = 'all .5s linear'
+                    areaEle.style.transition = 'all .5s linear'
+                    this.style.left = areaEle.offsetLeft + 'px'
+                    this.style.top = areaEle.offsetTop + 'px'
+                    areaEle.style.left = startLeft + 'px'
+                    areaEle.style.top = startTop + 'px'
+                    this.style.zIndex = 1
+                }
+                this.removeEventListener('mousemove', move)
+                this.removeEventListener('mouseout', out)
+            }
+            function out() {
+                console.log(this)
+                this.removeEventListener('mousemove', move)
+                this.removeEventListener('mouseout', out)
+                this.removeEventListener('mouseup', up)
+                this.style.transition = 'all .5s linear'
+                this.style.left = startLeft + 'px'
+                this.style.top = startTop + 'px'
+                this.style.zIndex = 1
+            }
+            function addColor() {
+                var arr = ['yellow', 'blue', 'red', 'pink', 'purple', 'orange', 'hotpink', 'green', 'skyblue']
+                lis.forEach(function (item, index) {
+                item.style.backgroundColor = arr[index]
+                })
+            }
+    </script>
+</body>
+</html>
